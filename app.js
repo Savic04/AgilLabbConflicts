@@ -4,13 +4,14 @@ const priorityCheck = document.getElementById('priority-check');
 const taskList = document.getElementById('task-list');
 
 const tasks = [];
+let completedCount = 0;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const text = input.value.trim();
   if (!text) return;
 
-  const task = { text, priority: priorityCheck.checked, done: false };
+  const task = { text, priority: priorityCheck.checked, done: false, createdAt: Date.now() };
   tasks.push(task);
   input.value = '';
   priorityCheck.checked = false;
@@ -19,6 +20,7 @@ form.addEventListener('submit', (e) => {
 
 function renderTasks() {
   taskList.innerHTML = '';
+  completedCount = tasks.filter(t => t.done).length;
   tasks.forEach((task, index) => {
     const li = document.createElement('li');
     if (task.priority) li.classList.add('priority');
@@ -26,6 +28,7 @@ function renderTasks() {
 
     const span = document.createElement('span');
     span.textContent = task.text;
+    if (task.createdAt) span.title = new Date(task.createdAt).toLocaleTimeString();
 
     const doneBtn = document.createElement('button');
     doneBtn.textContent = task.done ? 'Ångra' : 'Klar';
