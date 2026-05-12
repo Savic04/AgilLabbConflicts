@@ -5,14 +5,14 @@ const taskList = document.getElementById('task-list');
 const taskCounter = document.getElementById('task-counter');
 
 const tasks = [];
-let completedCount = 0;
+let filterActive = false;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const text = input.value.trim();
   if (!text) return;
 
-  const task = { text, priority: priorityCheck.checked, done: false, createdAt: Date.now() };
+  const task = { text, priority: priorityCheck.checked, done: false, category: 'general' };
   tasks.push(task);
   input.value = '';
   priorityCheck.checked = false;
@@ -20,16 +20,16 @@ form.addEventListener('submit', (e) => {
 });
 
 function updateCounter() {
-  const remaining = tasks.filter(t => !t.done).length;
+  const done = tasks.filter(t => t.done).length;
   if (taskCounter) {
-    taskCounter.textContent = `${remaining} task${remaining !== 1 ? 's' : ''} kvar`;
+    taskCounter.textContent = `${done} av ${tasks.length} klara`;
   }
 }
 
 function renderTasks() {
   taskList.innerHTML = '';
-  completedCount = tasks.filter(t => t.done).length;
-  tasks.forEach((task, index) => {
+  const visible = filterActive ? tasks.filter(t => !t.done) : tasks;
+  visible.forEach((task, index) => {
     const li = document.createElement('li');
     if (task.priority) li.classList.add('priority');
     if (task.done) li.classList.add('done');
