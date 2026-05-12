@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: grey;
+    background-color: #1a1a2e;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -50,11 +50,10 @@
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    background-color: red;
+    background-color: #2ecc71;
     color: white;
-    border: solid;
-    border-width: 2px;
-    border-radius: 6px;
+    border: none;
+    border-radius: 20px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -62,5 +61,5 @@
 }
 
 .login-button:hover {
-    background-color: #0056b3;
+    background-color: #27ae60;
 }
