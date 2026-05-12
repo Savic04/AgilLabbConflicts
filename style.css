@@ -3,6 +3,11 @@ body {
   max-width: 600px;
   margin: 40px auto;
   padding: 0 20px;
+  background: #e8f4f8;
+}
+
+h1 {
+  color: #1a73e8;
   background: #fff3e0;
 }
 
@@ -27,6 +32,10 @@ form {
 
 button {
   padding: 8px 16px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
   background: #8e44ad;
   color: white;
   border: none;
@@ -36,6 +45,7 @@ button {
 }
 
 button:hover {
+  background: #1e8449;
   background: #6c3483;
 }
 
