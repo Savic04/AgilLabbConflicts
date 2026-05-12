@@ -1,29 +1,45 @@
-// LoginPage.tsx - Version B (Klistra in denna på en annan branch)
 import React, { useState } from 'react';
 import './LoginPage.css';
+import CasinoPage from './CasinoPage'; // Importera den nya komponenten
 
 const LoginPage: React.FC = () => {
-    const [email, setEmail] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+    const [error, setError] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // KONFLIKT HÄR: Ändrad logik
-        alert("Försöker logga in användare...");
+
+        // Specifik logik för användarnamn och lösenord
+        if (username === 'admin' && password === '123') {
+            setIsLoggedIn(true);
+            setError('');
+            console.log("Inloggning lyckades!");
+        } else {
+            setError('Fel användarnamn eller lösenord!');
+        }
     };
+
+    // Om inloggad, visa Casino-sidan
+    if (isLoggedIn) {
+        return <CasinoPage onLogout={() => setIsLoggedIn(false)} />;
+    }
 
     return (
         <div className="login-container">
             <form className="login-card" onSubmit={handleSubmit}>
-                {/* KONFLIKT HÄR: Annan rubrik */}
-                <h2>Välkommen till TaskManager</h2>
+                <h2>Välkommen hit igen</h2>
+                <p style={{ marginBottom: '20px', color: '#666' }}>Logga in till Hilals system</p>
+
+                {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
 
                 <div className="input-group">
                     <input
-                        type="email"
-                        placeholder="E-post"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        type="text"
+                        placeholder="Användarnamn"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                         required
                     />
                 </div>
@@ -39,7 +55,7 @@ const LoginPage: React.FC = () => {
                 </div>
 
                 <button type="submit" className="login-button">
-                    Kör igång!
+                    Logga in
                 </button>
             </form>
         </div>

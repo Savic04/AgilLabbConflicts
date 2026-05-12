@@ -1,0 +1,87 @@
+/* Betninja-inspirerat tema */
+.casino-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f1215; /* Extremt mörkgrå/svart */
+    font-family: 'Inter', 'Roboto', sans-serif;
+    color: #ffffff;
+}
+
+.casino-card {
+    background: #1a1f24; /* Lite ljusare grå för kortet */
+    padding: 2.5rem;
+    border-radius: 12px;
+    border-bottom: 4px solid #adff2f; /* Lime-grön accent nertill */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    max-width: 500px;
+    width: 95%;
+}
+
+.casino-header {
+    color: #adff2f; /* Betninja Grön */
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.balance-display {
+    background: #252c33;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.balance-label {
+    color: #8a949d;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.balance-amount {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Den stora gröna knappen */
+.play-button {
+    background: #adff2f;
+    color: #000000;
+    border: none;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+    text-transform: uppercase;
+}
+
+.play-button:hover {
+    background: #96db26;
+}
+
+.logout-btn {
+    margin-top: 1.5rem;
+    background: transparent;
+    color: #8a949d;
+    border: none;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    color: #ffffff;
+}
