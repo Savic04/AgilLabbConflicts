@@ -5,11 +5,11 @@ import './LoginPage.css';
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [name, setName] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // KONFLIKT HÄR: Ändrad logik
-        alert("Försöker logga in användare...");
+        console.log("Login-försök:", { email, password, name });
     };
 
     return (
@@ -17,6 +17,16 @@ const LoginPage: React.FC = () => {
             <form className="login-card" onSubmit={handleSubmit}>
                 {/* KONFLIKT HÄR: Annan rubrik */}
                 <h2>Välkommen till TaskManager</h2>
+
+                <div className="input-group">
+                    <input
+                        type="text"
+                        placeholder="Namn"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                </div>
 
                 <div className="input-group">
                     <input
