@@ -5,14 +5,14 @@ const taskList = document.getElementById('task-list');
 const taskCounter = document.getElementById('task-counter');
 
 const tasks = [];
-let nextId = 1;
+let completedCount = 0;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const text = input.value.trim();
   if (!text) return;
 
-  const task = { id: nextId++, text, priority: priorityCheck.checked, done: false };
+  const task = { text, priority: priorityCheck.checked, done: false, createdAt: Date.now() };
   tasks.push(task);
   input.value = '';
   priorityCheck.checked = false;
@@ -28,21 +28,15 @@ function updateCounter() {
 
 function renderTasks() {
   taskList.innerHTML = '';
-
-  const sorted = [...tasks].sort((a, b) => {
-    if (a.priority && !b.priority) return -1;
-    if (!a.priority && b.priority) return 1;
-    return 0;
-  });
-
-  sorted.forEach((task) => {
-    const index = tasks.findIndex(t => t.id === task.id);
+  completedCount = tasks.filter(t => t.done).length;
+  tasks.forEach((task, index) => {
     const li = document.createElement('li');
     if (task.priority) li.classList.add('priority');
     if (task.done) li.classList.add('done');
 
     const span = document.createElement('span');
     span.textContent = task.text;
+    if (task.createdAt) span.title = new Date(task.createdAt).toLocaleTimeString();
 
     const doneBtn = document.createElement('button');
     doneBtn.textContent = task.done ? 'Ångra' : 'Klar';

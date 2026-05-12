@@ -1,11 +1,12 @@
 /* LoginPage.css */
 
+
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f2f5;
+    background-color: grey;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -49,9 +50,10 @@
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    background-color: #007bff;
+    background-color: red;
     color: white;
-    border: none;
+    border: solid;
+    border-width: 2px;
     border-radius: 6px;
     font-size: 16px;
     font-weight: 600;

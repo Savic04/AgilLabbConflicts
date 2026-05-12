@@ -13,7 +13,7 @@ const LoginPage: React.FC = () => {
     return (
         <div className="login-container">
             <form className="login-card" onSubmit={handleSubmit}>
-                <h2>Välkommen tillbaka</h2>
+                <h2>Välkommen hit igen</h2>
 
                 <div className="input-group">
                     <input
