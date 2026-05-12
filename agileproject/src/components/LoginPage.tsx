@@ -11,7 +11,6 @@ const LoginPage: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Specifik logik för användarnamn och lösenord
         if (username === 'admin' && password === '123') {
             setIsLoggedIn(true);
             setError('');
