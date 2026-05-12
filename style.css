@@ -48,10 +48,11 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: white;
-  padding: 10px;
-  margin-bottom: 8px;
-  border-radius: 4px;
+  background: #2c2c2c;
+  color: white;
+  padding: 12px;
+  margin-bottom: 6px;
+  border-radius: 0px;
   border-left: 4px solid #ccc;
 }
 
