@@ -2,6 +2,7 @@ const form = document.getElementById('task-form');
 const input = document.getElementById('task-input');
 const priorityCheck = document.getElementById('priority-check');
 const taskList = document.getElementById('task-list');
+const taskCounter = document.getElementById('task-counter');
 
 const tasks = [];
 let completedCount = 0;
@@ -17,6 +18,13 @@ form.addEventListener('submit', (e) => {
   priorityCheck.checked = false;
   renderTasks();
 });
+
+function updateCounter() {
+  const remaining = tasks.filter(t => !t.done).length;
+  if (taskCounter) {
+    taskCounter.textContent = `${remaining} task${remaining !== 1 ? 's' : ''} kvar`;
+  }
+}
 
 function renderTasks() {
   taskList.innerHTML = '';
@@ -51,4 +59,6 @@ function renderTasks() {
     li.appendChild(deleteBtn);
     taskList.appendChild(li);
   });
+
+  updateCounter();
 }
