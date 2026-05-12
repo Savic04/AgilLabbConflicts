@@ -1,3 +1,4 @@
+// LoginPage.tsx - Version B (Klistra in denna på en annan branch)
 import React, { useState } from 'react';
 import './LoginPage.css';
 
@@ -14,7 +15,8 @@ const LoginPage: React.FC = () => {
     return (
         <div className="login-container">
             <form className="login-card" onSubmit={handleSubmit}>
-                <h2>Välkommen hit igen</h2>
+                {/* KONFLIKT HÄR: Annan rubrik */}
+                <h2>Välkommen till TaskManager</h2>
 
                 <div className="input-group">
                     <input
@@ -29,7 +31,7 @@ const LoginPage: React.FC = () => {
                 <div className="input-group">
                     <input
                         type="email"
-                        placeholder="E-postadress"
+                        placeholder="E-post"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -47,7 +49,7 @@ const LoginPage: React.FC = () => {
                 </div>
 
                 <button type="submit" className="login-button">
-                    Logga in
+                    Kör igång!
                 </button>
             </form>
         </div>
