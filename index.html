@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeamTasker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>TeamTasker</h1>
+
+  <form id="task-form">
+    <input type="text" id="task-input" placeholder="Skriv en uppgift..." required />
+    <label>
+      <input type="checkbox" id="priority-check" /> Viktig
+    </label>
+    <button type="submit">Lägg till</button>
+  </form>
+
+  <ul id="task-list"></ul>
+
+  <script src="app.js"></script>
+</body>
+</html>
