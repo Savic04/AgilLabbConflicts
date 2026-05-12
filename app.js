@@ -38,7 +38,7 @@ function renderTasks() {
     if (task.createdAt) span.title = new Date(task.createdAt).toLocaleTimeString();
 
     const doneBtn = document.createElement('button');
-    doneBtn.textContent = task.done ? 'Ångra' : 'Klar';
+    doneBtn.textContent = task.done ? 'Ej klar' : 'Markera klar';
     doneBtn.className = 'btn-done';
     doneBtn.onclick = () => {
       tasks[index].done = !tasks[index].done;
@@ -46,7 +46,7 @@ function renderTasks() {
     };
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Radera';
+    deleteBtn.textContent = 'Ta bort';
     deleteBtn.className = 'btn-delete';
     deleteBtn.onclick = () => {
       tasks.splice(index, 1);
