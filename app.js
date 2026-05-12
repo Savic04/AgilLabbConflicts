@@ -38,6 +38,7 @@ function renderTasks() {
     if (task.createdAt) span.title = new Date(task.createdAt).toLocaleTimeString();
 
     const doneBtn = document.createElement('button');
+    doneBtn.textContent = task.done ? 'Ej klar' : 'Markera klar';
     doneBtn.textContent = task.done ? 'Återställ' : 'Done';
     doneBtn.className = 'btn-done';
     doneBtn.onclick = () => {
@@ -46,6 +47,7 @@ function renderTasks() {
     };
 
     const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Ta bort';
     deleteBtn.textContent = 'Delete';
     deleteBtn.className = 'btn-delete';
     deleteBtn.onclick = () => {
