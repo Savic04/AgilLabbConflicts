@@ -10,10 +10,10 @@
 }
 
 .casino-card {
-    background: #1a1f24; /* Lite ljusare grå för kortet */
+    background: black; /* Lite ljusare grå för kortet */
     padding: 2.5rem;
     border-radius: 12px;
-    border-bottom: 4px solid #adff2f; /* Lime-grön accent nertill */
+    border-bottom: 4px solid yellow; /* Lime-grön accent nertill */
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     text-align: center;
     max-width: 500px;
@@ -21,7 +21,7 @@
 }
 
 .casino-header {
-    color: #adff2f; /* Betninja Grön */
+    color: yellow; /* Betninja Grön */
     font-size: 2.5rem;
     font-weight: 900;
     margin-bottom: 0.5rem;
@@ -69,7 +69,8 @@
 }
 
 .play-button:hover {
-    background: #96db26;
+    background: black;
+    
 }
 
 .logout-btn {

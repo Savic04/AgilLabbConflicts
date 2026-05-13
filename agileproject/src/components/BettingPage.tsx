@@ -10,15 +10,15 @@ const BettingPage: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
                 <div className="match-list">
                     <div className="match-item">
-                        <span className="match-teams">AIK vs Hammarby</span>
+                        <span className="match-teams">Han vs Hon</span>
                         <button className="odds-button">2.50</button>
                     </div>
                     <div className="match-item">
-                        <span className="match-teams">Real Madrid vs Barcelona</span>
+                        <span className="match-teams">Helder vs Anders</span>
                         <button className="odds-button">1.85</button>
                     </div>
                     <div className="match-item">
-                        <span className="match-teams">Manchester City vs Liverpool</span>
+                        <span className="match-teams">Skolan City vs Nya lokal fc</span>
                         <button className="odds-button">3.20</button>
                     </div>
                 </div>
