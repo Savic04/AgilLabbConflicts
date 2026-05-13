@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CasinoPage.css';
+import BettingPage from './BettingPage';
 
 const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
+    const [showBetting, setShowBetting] = useState<boolean>(false);
+
+    // Om användaren klickat PLACERA SPEL, visa BettingPage
+    if (showBetting) {
+        return <BettingPage onBack={() => setShowBetting(false)} />;
+    }
+
     return (
         <div className="casino-container">
             <div className="casino-card">
@@ -13,7 +21,7 @@ const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
                     <div className="balance-amount">1 000 000,00 kr</div>
                 </div>
 
-                <button className="play-button">
+                <button className="play-button" onClick={() => setShowBetting(true)}>
                     PLACERA SPEL
                 </button>
 
