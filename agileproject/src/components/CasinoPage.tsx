@@ -1,13 +1,13 @@
 import React from 'react';
 import './CasinoPage.css';
 
-// Definiera props
 interface CasinoPageProps {
+    balance: number;
     onLogout: () => void;
-    onPlayBlackjack: () => void; // <--- Lägg till denna
+    onPlayBlackjack: () => void;
 }
 
-const CasinoPage: React.FC<CasinoPageProps> = ({ onLogout, onPlayBlackjack }) => {
+const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack }) => {
     return (
         <div className="casino-container">
             <div className="casino-card">
@@ -16,10 +16,9 @@ const CasinoPage: React.FC<CasinoPageProps> = ({ onLogout, onPlayBlackjack }) =>
 
                 <div className="balance-display">
                     <span className="balance-label">Tillgängligt saldo</span>
-                    <div className="balance-amount">1 000 000,00 kr</div>
+                    <div className="balance-amount">{balance.toLocaleString()} kr</div>
                 </div>
 
-                {/* Koppla knappen till funktionen */}
                 <button className="play-button" onClick={onPlayBlackjack}>
                     SPELA BLACKJACK
                 </button>
