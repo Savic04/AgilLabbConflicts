@@ -1,37 +1,31 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
-import CasinoPage from './CasinoPage'; // Importera den nya komponenten
 
-const LoginPage: React.FC = () => {
+interface LoginPageProps {
+    onLogin: () => void;
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
         if (username === 'admin' && password === '123') {
-            setIsLoggedIn(true);
-            setError('');
-            console.log("Inloggning lyckades!");
+            onLogin();
         } else {
             setError('Fel användarnamn eller lösenord!');
         }
     };
 
-    // Om inloggad, visa Casino-sidan
-    if (isLoggedIn) {
-        return <CasinoPage onLogout={() => setIsLoggedIn(false)} />;
-    }
-
     return (
         <div className="login-container">
             <form className="login-card" onSubmit={handleSubmit}>
-                <h2>Välkommen hit igen</h2>
-                <p style={{ marginBottom: '20px', color: '#666' }}>Logga in till Hilals system</p>
+                <h1 className="casino-header" style={{ fontSize: '2rem' }}>HILAL NINJA</h1>
+                <p style={{ color: '#8a949d', marginBottom: '20px' }}>Logga in till systemet</p>
 
-                {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
+                {error && <p style={{ color: '#ff4444', fontWeight: 'bold' }}>{error}</p>}
 
                 <div className="input-group">
                     <input
@@ -42,7 +36,6 @@ const LoginPage: React.FC = () => {
                         required
                     />
                 </div>
-
                 <div className="input-group">
                     <input
                         type="password"
@@ -52,10 +45,7 @@ const LoginPage: React.FC = () => {
                         required
                     />
                 </div>
-
-                <button type="submit" className="login-button">
-                    Logga in
-                </button>
+                <button type="submit" className="login-button">LOGGA IN</button>
             </form>
         </div>
     );

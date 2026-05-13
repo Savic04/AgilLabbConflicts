@@ -18,7 +18,7 @@ const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
 
                 <div className="balance-display">
                     <span className="balance-label">Tillgängligt saldo</span>
-                    <div className="balance-amount">1 000 000,00 kr</div>
+                    <div className="balance-amount">{balance.toLocaleString()} kr</div>
                 </div>
 
                 <button className="play-button" onClick={() => setShowBetting(true)}>
