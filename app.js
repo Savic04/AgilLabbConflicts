@@ -12,7 +12,7 @@ form.addEventListener('submit', (e) => {
   const text = input.value.trim();
   if (!text) return;
 
-  const task = { text, priority: priorityCheck.checked, done: false, category: 'general' };
+  const task = { id: taskIdCounter++, text, priority: priorityCheck.checked, done: false, createdAt: new Date().toISOString() };
   tasks.push(task);
   input.value = '';
   priorityCheck.checked = false;
@@ -20,16 +20,15 @@ form.addEventListener('submit', (e) => {
 });
 
 function updateCounter() {
-  const done = tasks.filter(t => t.done).length;
+  const total = tasks.length;
   if (taskCounter) {
-    taskCounter.textContent = `${done} av ${tasks.length} klara`;
+    taskCounter.textContent = `Totalt: ${total} tasks`;
   }
 }
 
 function renderTasks() {
   taskList.innerHTML = '';
-  const visible = filterActive ? tasks.filter(t => !t.done) : tasks;
-  visible.forEach((task, index) => {
+  tasks.forEach((task, index) => {
     const li = document.createElement('li');
     if (task.priority) li.classList.add('priority');
     if (task.done) li.classList.add('done');
@@ -39,7 +38,8 @@ function renderTasks() {
     if (task.createdAt) span.title = new Date(task.createdAt).toLocaleTimeString();
 
     const doneBtn = document.createElement('button');
-    doneBtn.textContent = task.done ? 'Ångra' : 'Klar';
+    doneBtn.textContent = task.done ? 'Ej klar' : 'Markera klar';
+    doneBtn.textContent = task.done ? 'Återställ' : 'Done';
     doneBtn.className = 'btn-done';
     doneBtn.onclick = () => {
       tasks[index].done = !tasks[index].done;
@@ -47,7 +47,8 @@ function renderTasks() {
     };
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Radera';
+    deleteBtn.textContent = 'Ta bort';
+    deleteBtn.textContent = 'Delete';
     deleteBtn.className = 'btn-delete';
     deleteBtn.onclick = () => {
       tasks.splice(index, 1);
