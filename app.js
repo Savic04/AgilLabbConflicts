@@ -5,7 +5,7 @@ const taskList = document.getElementById('task-list');
 const taskCounter = document.getElementById('task-counter');
 
 const tasks = [];
-let taskIdCounter = 1;
+let filterActive = false;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
