@@ -1,37 +1,39 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
-import CasinoPage from './CasinoPage'; // Importera den nya komponenten
 
-const LoginPage: React.FC = () => {
+// 1. Vi definierar att vi förväntar oss onLogin från App.tsx
+interface LoginPageProps {
+    onLogin: () => void;
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
+        // 2. Kontrollera uppgifterna
         if (username === 'admin' && password === '123') {
-            setIsLoggedIn(true);
             setError('');
             console.log("Inloggning lyckades!");
+
+            // 3. ISTÄLLET för setIsLoggedIn(true), anropar vi onLogin()
+            // Detta säger till App.tsx att byta sida till Lobbyn
+            onLogin();
         } else {
             setError('Fel användarnamn eller lösenord!');
         }
     };
 
-    // Om inloggad, visa Casino-sidan
-    if (isLoggedIn) {
-        return <CasinoPage onLogout={() => setIsLoggedIn(false)} />;
-    }
-
     return (
         <div className="login-container">
             <form className="login-card" onSubmit={handleSubmit}>
-                <h2>Välkommen hit igen</h2>
-                <p style={{ marginBottom: '20px', color: '#666' }}>Logga in till Hilals system</p>
+                <h2 className="casino-header" style={{ fontSize: '1.8rem' }}>HILAL NINJA</h2>
+                <p style={{ marginBottom: '20px', color: '#8a949d' }}>Logga in till systemet</p>
 
-                {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
+                {error && <p style={{ color: '#ff4444', fontWeight: 'bold', marginBottom: '10px' }}>{error}</p>}
 
                 <div className="input-group">
                     <input

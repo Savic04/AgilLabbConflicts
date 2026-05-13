@@ -1,0 +1,77 @@
+/* BlackjackPage.css */
+.blackjack-container {
+    min-height: 100vh;
+    background-color: #0f1215;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.table-area {
+    background: radial-gradient(circle, #1a4a1a 0%, #0f1215 100%); /* Grön filt-känsla */
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 50px;
+    border: 8px solid #252c33;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.hand-section {
+    margin: 20px 0;
+}
+
+.cards-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.card {
+    background: white;
+    color: black;
+    width: 60px;
+    height: 90px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-btn {
+    background: #adff2f;
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 800;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.action-btn:disabled {
+    background: #444;
+    cursor: not-allowed;
+}
+
+.status-msg {
+    font-size: 1.5rem;
+    color: #adff2f;
+    margin: 15px 0;
+    font-style: italic;
+    font-weight: bold;
+}

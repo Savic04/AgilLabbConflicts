@@ -1,7 +1,13 @@
 import React from 'react';
 import './CasinoPage.css';
 
-const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
+// Definiera props
+interface CasinoPageProps {
+    onLogout: () => void;
+    onPlayBlackjack: () => void; // <--- Lägg till denna
+}
+
+const CasinoPage: React.FC<CasinoPageProps> = ({ onLogout, onPlayBlackjack }) => {
     return (
         <div className="casino-container">
             <div className="casino-card">
@@ -13,8 +19,9 @@ const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
                     <div className="balance-amount">1 000 000,00 kr</div>
                 </div>
 
-                <button className="play-button">
-                    PLACERA SPEL
+                {/* Koppla knappen till funktionen */}
+                <button className="play-button" onClick={onPlayBlackjack}>
+                    SPELA BLACKJACK
                 </button>
 
                 <button onClick={onLogout} className="logout-btn">
