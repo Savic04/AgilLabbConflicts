@@ -13,7 +13,7 @@ const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
     return (
         <div className="casino-container">
             <div className="casino-card">
-                <h1 className="casino-header">HILAL NINJA</h1>
+                <h1 className="casino-header">HILALS NINJA</h1>
                 <p style={{ color: '#8a949d', fontSize: '0.9rem' }}>SPORTSBOOK & CASINO</p>
 
                 <div className="balance-display">

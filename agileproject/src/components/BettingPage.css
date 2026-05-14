@@ -17,13 +17,13 @@
 }
 
 .betting-header {
-    color: #c4ff00;
+    color: #5a7500;
     text-align: center;
     margin-bottom: 8px;
 }
 
 .betting-subtitle {
-    color: #8a949d;
+    color: #054276;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -50,7 +50,7 @@
 
 .odds-button {
     background-color: #c4ff00;
-    color: #000;
+    color: #973232;
     border: none;
     padding: 8px 20px;
     border-radius: 6px;
@@ -62,8 +62,8 @@
     width: 100%;
     padding: 12px;
     background-color: transparent;
-    color: #8a949d;
-    border: 1px solid #8a949d;
+    color: #447daf;
+    border: 1px solid #ffffff;
     border-radius: 6px;
     cursor: pointer;
 }

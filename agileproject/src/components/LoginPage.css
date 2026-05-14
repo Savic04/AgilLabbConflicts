@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #ffecd2;
+    background-color: #c17000;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -23,7 +23,7 @@
 
 .login-card h2 {
     margin-bottom: 24px;
-    color: #333;
+    color: #505050;
     text-align: center;
 }
 
@@ -43,14 +43,14 @@
 
 .input-group input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #0052aa;
 }
 
 .login-button {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    background-color: #e74c3c;
+    background-color: #81170b;
     color: white;
     border: none;
     border-radius: 4px;
@@ -61,5 +61,5 @@
 }
 
 .login-button:hover {
-    background-color: #c0392b;
+    background-color: #9b1a0b;
 }

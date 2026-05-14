@@ -21,7 +21,7 @@
 }
 
 .casino-header {
-    color: yellow; /* Betninja Grön */
+    color: rgb(240, 240, 0); /* Betninja Grön */
     font-size: 2.5rem;
     font-weight: 900;
     margin-bottom: 0.5rem;
@@ -31,7 +31,7 @@
 }
 
 .balance-display {
-    background: #252c33;
+    background: #21374d;
     padding: 1rem;
     border-radius: 8px;
     margin: 1.5rem 0;
@@ -41,7 +41,7 @@
 }
 
 .balance-label {
-    color: #8a949d;
+    color: #809ab1;
     font-size: 0.8rem;
     text-transform: uppercase;
     margin-bottom: 5px;
@@ -76,7 +76,7 @@
 .logout-btn {
     margin-top: 1.5rem;
     background: transparent;
-    color: #8a949d;
+    color: #00539b;
     border: none;
     font-size: 0.9rem;
     text-decoration: underline;
