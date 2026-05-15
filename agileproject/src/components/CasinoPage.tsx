@@ -29,23 +29,25 @@ const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackj
                     <div className="balance-amount">{balance.toLocaleString()} kr</div>
                 </div>
 
-                <div className="game-buttons">
-                    <button className="play-button" onClick={() => setShowBetting(true)}>
-                        PLACERA SPEL
+                <div className="lobby-grid">
+                    <button className="lobby-card-btn" onClick={() => setShowBetting(true)}>
+                        <span className="lobby-icon">⚽</span>
+                        <span>SPORT</span>
                     </button>
-
-                    <button className="play-button" onClick={onPlayBlackjack} style={{ marginTop: '10px' }}>
-                        BLACKJACK
+                    <button className="lobby-card-btn" onClick={onPlayBlackjack}>
+                        <span className="lobby-icon">🃏</span>
+                        <span>BLACKJACK</span>
                     </button>
-
-                    <button className="history-btn" onClick={onViewHistory}>
-                        SPELHISTORIK
+                    <button className="lobby-card-btn" onClick={onPlayDice}>
+                        <span className="lobby-icon">🎲</span>
+                        <span>DICE</span>
+                    </button>
+                    <button className="lobby-card-btn lobby-card-soon" onClick={onPlaySlots} disabled>
+                        <span className="lobby-icon">🎰</span>
+                        <span>SLOTS</span>
+                        <span className="soon-tag">Snart</span>
                     </button>
                 </div>
-
-                <button className="play-button" onClick={onPlayBlackjack} style={{ marginTop: '10px' }}>
-                    BLACKJACK
-                </button>
 
                 <button className="play-button" onClick={onPlayDice} style={{ marginTop: '10px' }}>
                     DICE
@@ -54,8 +56,6 @@ const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackj
                 <button className="deposit-btn" onClick={onDeposit}>
                     SÄTT IN PENGAR
                 </button>
-
-                <p className="coming-soon-label">Poker & Slots – kommer snart</p>
 
                 <button onClick={onLogout} className="logout-btn">
                     Logga ut från Hilals Ninja
