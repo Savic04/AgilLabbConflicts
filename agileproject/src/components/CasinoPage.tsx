@@ -6,10 +6,11 @@ interface CasinoPageProps {
     balance: number;
     onLogout: () => void;
     onPlayBlackjack: () => void;
+    onPlayDice: () => void;
     onDeposit: () => void;
 }
 
-const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack, onDeposit }) => {
+const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack, onPlayDice, onDeposit }) => {
     const [showBetting, setShowBetting] = useState<boolean>(false);
 
     if (showBetting) {
@@ -33,6 +34,10 @@ const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackj
 
                 <button className="play-button" onClick={onPlayBlackjack} style={{ marginTop: '10px' }}>
                     BLACKJACK
+                </button>
+
+                <button className="play-button" onClick={onPlayDice} style={{ marginTop: '10px' }}>
+                    DICE
                 </button>
 
                 <button className="deposit-btn" onClick={onDeposit}>
