@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import './CasinoPage.css';
 import BettingPage from './BettingPage';
 
-const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
+interface CasinoPageProps {
+    balance: number;
+    onLogout: () => void;
+    onPlayBlackjack: () => void;
+    onViewHistory: () => void;
+}
+
+const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack, onViewHistory }) => {
     const [showBetting, setShowBetting] = useState<boolean>(false);
 
-    // Om användaren klickat PLACERA SPEL, visa BettingPage
     if (showBetting) {
         return <BettingPage onBack={() => setShowBetting(false)} />;
     }
@@ -21,9 +27,19 @@ const CasinoPage: React.FC<{ onLogout: () => void }> = ({ onLogout }) => {
                     <div className="balance-amount">{balance.toLocaleString()} kr</div>
                 </div>
 
-                <button className="play-button" onClick={() => setShowBetting(true)}>
-                    PLACERA SPEL
-                </button>
+                <div className="game-buttons">
+                    <button className="play-button" onClick={() => setShowBetting(true)}>
+                        PLACERA SPEL
+                    </button>
+
+                    <button className="play-button" onClick={onPlayBlackjack} style={{ marginTop: '10px' }}>
+                        BLACKJACK
+                    </button>
+
+                    <button className="history-btn" onClick={onViewHistory}>
+                        SPELHISTORIK
+                    </button>
+                </div>
 
                 <button onClick={onLogout} className="logout-btn">
                     Logga ut från Hilals Ninja
