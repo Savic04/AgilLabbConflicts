@@ -85,3 +85,30 @@
 .logout-btn:hover {
     color: #ffffff;
 }
+
+.deposit-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px 32px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.deposit-btn:hover {
+    border-color: #adff2f;
+    color: #adff2f;
+}
+
+.coming-soon-label {
+    color: #555;
+    font-size: 0.8rem;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
