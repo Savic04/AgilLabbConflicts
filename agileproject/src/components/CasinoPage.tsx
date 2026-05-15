@@ -6,12 +6,12 @@ interface CasinoPageProps {
     balance: number;
     onLogout: () => void;
     onPlayBlackjack: () => void;
+onViewHistory: () => void;
     onPlayDice: () => void;
-    onPlaySlots: () => void;
     onDeposit: () => void;
 }
 
-const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack, onPlayDice, onPlaySlots, onDeposit }) => {
+const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack, onViewHistory, onPlayDice, onDeposit }) => {
     const [showBetting, setShowBetting] = useState<boolean>(false);
 
     if (showBetting) {
@@ -48,6 +48,10 @@ const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackj
                         <span className="soon-tag">Snart</span>
                     </button>
                 </div>
+
+                <button className="play-button" onClick={onPlayDice} style={{ marginTop: '10px' }}>
+                    DICE
+                </button>
 
                 <button className="deposit-btn" onClick={onDeposit}>
                     SÄTT IN PENGAR
