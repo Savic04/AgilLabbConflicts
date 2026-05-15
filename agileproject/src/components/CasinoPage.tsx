@@ -6,10 +6,11 @@ interface CasinoPageProps {
     balance: number;
     onLogout: () => void;
     onPlayBlackjack: () => void;
-    onViewHistory: () => void;
+onViewHistory: () => void;
+    onDeposit: () => void;
 }
 
-const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack, onViewHistory }) => {
+const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackjack, onViewHistory, onDeposit }) => {
     const [showBetting, setShowBetting] = useState<boolean>(false);
 
     if (showBetting) {
@@ -40,6 +41,16 @@ const CasinoPage: React.FC<CasinoPageProps> = ({ balance, onLogout, onPlayBlackj
                         SPELHISTORIK
                     </button>
                 </div>
+
+                <button className="play-button" onClick={onPlayBlackjack} style={{ marginTop: '10px' }}>
+                    BLACKJACK
+                </button>
+
+                <button className="deposit-btn" onClick={onDeposit}>
+                    SÄTT IN PENGAR
+                </button>
+
+                <p className="coming-soon-label">Poker & Slots – kommer snart</p>
 
                 <button onClick={onLogout} className="logout-btn">
                     Logga ut från Hilals Ninja
