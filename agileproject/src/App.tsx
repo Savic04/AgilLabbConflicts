@@ -11,10 +11,17 @@ type Page = 'login' | 'lobby' | 'blackjack' | 'dice' | 'deposit';
 function App() {
     const [currentPage, setCurrentPage] = useState<Page>('login');
     const [balance, setBalance] = useState<number>(10000);
+    const [spelHistorik, setSpelHistorik] = useState<SpelRad[]>([]);
 
     const updateBalance = (amount: number) => {
         setBalance(prev => prev + amount);
     };
+
+    const laggTillHistorik = (rad: SpelRad) => {
+        setSpelHistorik(prev => [rad, ...prev]);
+    };
+
+    console.log('spelhistorik:', spelHistorik.length, 'rader');
 
     const handleDeposit = (amount: number) => {
         setBalance(prev => prev + amount);
@@ -32,6 +39,7 @@ function App() {
                     balance={balance}
                     onLogout={() => setCurrentPage('login')}
                     onPlayBlackjack={() => setCurrentPage('blackjack')}
+                    onViewHistory={() => setCurrentPage('history')}
                     onPlayDice={() => setCurrentPage('dice')}
                     onDeposit={() => setCurrentPage('deposit')}
                 />
@@ -45,6 +53,11 @@ function App() {
                 />
             )}
 
+            {currentPage === 'history' && (
+                <HistoryPage
+                    history={spelHistorik}
+                    onBack={() => setCurrentPage('lobby')}
+                />
             {currentPage === 'dice' && (
                 <DicePage
                     balance={balance}
